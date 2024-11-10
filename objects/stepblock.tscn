@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://octo6gl5gwxj"]
+
+[ext_resource type="Texture2D" uid="uid://cp07sc720clgb" path="res://levels/Sprite-00012.png" id="1_ch85h"]
+[ext_resource type="Script" path="res://scripts/stepblock.gd" id="1_p3lux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slbnu"]
+size = Vector2(30, 30)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_p3lux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -29)
+shape = SubResource("RectangleShape2D_slbnu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-3, -29)
+texture = ExtResource("1_ch85h")

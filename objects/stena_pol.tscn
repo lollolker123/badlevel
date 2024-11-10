@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkynl3oaae4fu"]
+
+[ext_resource type="Texture2D" uid="uid://cbfyl2no4ldhp" path="res://icon.svg" id="1_reds5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqhhs"]
+size = Vector2(1773, 183)
+
+[node name="stena-pol" type="StaticBody2D"]
+position = Vector2(100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.1, 1)
+shape = SubResource("RectangleShape2D_nqhhs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.999985, -3.57628e-06)
+scale = Vector2(1.40625, 1.5)
+texture = ExtResource("1_reds5")

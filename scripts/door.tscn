@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cce0hwxa8r4l2"]
+
+[ext_resource type="Script" path="res://door.gd" id="1_k0yau"]
+[ext_resource type="Texture2D" uid="uid://c8ew8gfxgac61" path="res://sprites/Sprite-0006.png" id="2_i3imr"]
+[ext_resource type="Texture2D" uid="uid://dwd1q4saqhqso" path="res://sprites/Sprite-0007.png" id="3_hqm8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujwo4"]
+size = Vector2(32, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7jh3"]
+size = Vector2(101, 69)
+
+[node name="door" type="Node2D"]
+script = ExtResource("1_k0yau")
+
+[node name="open" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -5)
+texture = ExtResource("3_hqm8o")
+
+[node name="closed" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -5)
+texture = ExtResource("2_i3imr")
+
+[node name="nextlevel" type="Area2D" parent="."]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nextlevel"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ujwo4")
+
+[node name="animate" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="animate"]
+position = Vector2(-0.5, -7.5)
+shape = SubResource("RectangleShape2D_l7jh3")
+
+[connection signal="body_entered" from="nextlevel" to="." method="_on_nextlevel_body_entered"]
+[connection signal="body_entered" from="animate" to="." method="_on_animate_body_entered"]
+[connection signal="body_exited" from="animate" to="." method="_on_animate_body_exited"]

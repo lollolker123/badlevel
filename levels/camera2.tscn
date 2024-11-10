@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://c87ee3ui5c6f7"]
+
+[ext_resource type="PackedScene" uid="uid://dau6fovvrd0ti" path="res://objects/charactersgame/badlik.tscn" id="1_nihrv"]
+[ext_resource type="PackedScene" uid="uid://c6181g7xlw70x" path="res://ship.tscn" id="3_7vn8d"]
+[ext_resource type="PackedScene" uid="uid://cce0hwxa8r4l2" path="res://scripts/door.tscn" id="4_au0yf"]
+[ext_resource type="PackedScene" uid="uid://dgc3458n2rbxy" path="res://objects/bloock.tscn" id="4_iwlhg"]
+[ext_resource type="PackedScene" uid="uid://cb3ihh7jxbhi" path="res://objects/2_ships.tscn" id="5_05xj2"]
+[ext_resource type="PackedScene" uid="uid://cboj22inv71w3" path="res://objects/3_ships.tscn" id="6_noh6e"]
+
+[node name="camera" type="Node2D"]
+position = Vector2(-239, 41)
+
+[node name="badlik" parent="." instance=ExtResource("1_nihrv")]
+position = Vector2(-566, -180)
+
+[node name="door" parent="." instance=ExtResource("4_au0yf")]
+position = Vector2(6, -221)
+next_scene = "res://levels/camera3.tscn"
+
+[node name="levelstandart" parent="." instance=ExtResource("4_iwlhg")]
+position = Vector2(-9, -3)
+scale = Vector2(0.993301, 0.992982)
+layer_0/tile_data = PackedInt32Array(-65548, 0, 0, -65547, 0, 0, -11, 0, 0, 65525, 0, 0, 131063, 0, 0, 65527, 0, 0, 65526, 0, 0, 196599, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, -65528, 0, 0, -131064, 0, 0, -196600, 0, 0, -262136, 0, 0, -327672, 0, 0, -65549, 0, 0, -65550, 0, 0, -393208, 0, 0, -458744, 0, 0, -524280, 0, 0, -589816, 0, 0, -589817, 0, 0, -589818, 0, 0, -589819, 0, 0, -589820, 0, 0, -589821, 0, 0, -589822, 0, 0, -589823, 0, 0, -589824, 0, 0, -524289, 0, 0, -524290, 0, 0, -524291, 0, 0, -524292, 0, 0, -524293, 0, 0, -524294, 0, 0, -524295, 0, 0, -524296, 0, 0, -524297, 0, 0, -524298, 0, 0, -524299, 0, 0, -524300, 0, 0, -524301, 0, 0, -524302, 0, 0, -524303, 0, 0, -524304, 0, 0, -524305, 0, 0, -524306, 0, 0, -458772, 0, 0, -393236, 0, 0, -327700, 0, 0, -262164, 0, 0, -196628, 0, 0, -131092, 0, 0, -65556, 0, 0, -20, 0, 0, 65516, 0, 0, 131052, 0, 0, 196588, 0, 0, 262124, 0, 0, 262125, 0, 0, 262126, 0, 0, 262127, 0, 0, 262128, 0, 0, 262129, 0, 0, 262130, 0, 0, 262131, 0, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262137, 0, 0, 262136, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 5, 0, 0, 4, 0, 0, 3, 0, 0, 196615, 0, 0, 196616, 0, 0, 131080, 0, 0, 65544, 0, 0, -196607, 0, 0, -196608, 0, 0, -131073, 0, 0, -131074, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -393215, 0, 0, -393216, 0, 0, -327681, 0, 0, -327682, 0, 0, -393218, 0, 0, -458754, 0, 0, -262161, 0, 0, -262162, 0, 0, -262163, 0, 0, -524308, 0, 0, -524307, 0, 0, -65551, 0, 0, -65552, 0, 0, -65553, 0, 0)
+
+[node name="ship" parent="." instance=ExtResource("3_7vn8d")]
+position = Vector2(110, -154)
+
+[node name="2ships" parent="." instance=ExtResource("5_05xj2")]
+position = Vector2(-439, -75)
+
+[node name="3ships" parent="." instance=ExtResource("6_noh6e")]
+position = Vector2(-232, 85)
+
+[node name="3ships2" parent="." instance=ExtResource("6_noh6e")]
+position = Vector2(-185, 85)
+
+[node name="3ships3" parent="." instance=ExtResource("6_noh6e")]
+position = Vector2(-393, -75)
+
+[node name="2ships2" parent="." instance=ExtResource("5_05xj2")]
+position = Vector2(-313, -11)
+
+[node name="3ships4" parent="." instance=ExtResource("6_noh6e")]
+position = Vector2(-138, 85)
+
+[node name="3ships5" parent="." instance=ExtResource("6_noh6e")]
+position = Vector2(197, -138)
+
+[node name="2ships3" parent="." instance=ExtResource("5_05xj2")]
+position = Vector2(7, -106)
+
+[node name="3ships6" parent="." instance=ExtResource("6_noh6e")]
+position = Vector2(148, -11)
