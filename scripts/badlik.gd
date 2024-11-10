@@ -7,7 +7,6 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -425.0
 var health = 10
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func applyDMG(dmg : int):
@@ -23,17 +22,14 @@ func _physics_process(delta):
 		velocity.y += gravity * delta 
 	if death:
 		return
-
-	# Handle jump.
+	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		sprite.play("jump")
-		
-		
-		
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
+	
 	var direction = Input.get_axis("stepleft", "stepright")
 	if direction:
 		velocity.x = direction * SPEED
@@ -48,18 +44,10 @@ func _physics_process(delta):
 	if direction < 0:
 		sprite.flip_h = true
 	move_and_slide()
-	
-
 
 func _on_animated_sprite_2d_animation_finished():
 	if not death:
 		sprite.play("idle")
-	
-
 
 func _on_deathtimer_timeout():
 	get_tree().reload_current_scene()
-	
-	
-
-

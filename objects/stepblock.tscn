@@ -8,12 +8,17 @@ size = Vector2(30, 30)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_p3lux")
+fly_direction = "Down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -29)
 shape = SubResource("RectangleShape2D_slbnu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-3, -29)
 texture = ExtResource("1_ch85h")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(1.6, 1.6)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
