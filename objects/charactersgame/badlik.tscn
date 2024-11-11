@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dau6fovvrd0ti"]
+[gd_scene load_steps=19 format=3 uid="uid://dau6fovvrd0ti"]
 
 [ext_resource type="Script" path="res://scripts/badlik.gd" id="1_200my"]
 [ext_resource type="Texture2D" uid="uid://0vltelq7jyao" path="res://sprites/Sprite-0001.png" id="1_h642b"]
 [ext_resource type="Texture2D" uid="uid://cpaeuyfpyc63g" path="res://sprites/Sprite-0009.png" id="2_oj03o"]
+[ext_resource type="AudioStream" uid="uid://cns4p03thodbg" path="res://sfx/ходьба.wav" id="2_uwc73"]
 [ext_resource type="Texture2D" uid="uid://dv3ge5gnvkbrq" path="res://sprites/Sprite-0002.png" id="3_abyny"]
 [ext_resource type="Texture2D" uid="uid://c2ve80ns4gwtb" path="res://sprites/Sprite-0003.png" id="3_gwusd"]
 
@@ -109,6 +110,16 @@ animations = [{
 [node name="badlik" type="CharacterBody2D"]
 script = ExtResource("1_200my")
 
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="step" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("2_uwc73")
+volume_db = -12.0
+pitch_scale = 4.0
+
+[node name="steptimer" type="Timer" parent="sfx"]
+wait_time = 0.1
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_0wnkp")
@@ -125,6 +136,8 @@ animation = &"idle"
 
 [node name="deathtimer" type="Timer" parent="."]
 wait_time = 0.8
+one_shot = true
 
+[connection signal="timeout" from="sfx/steptimer" to="." method="_on_steptimer_timeout"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="deathtimer" to="." method="_on_deathtimer_timeout"]

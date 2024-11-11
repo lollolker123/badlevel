@@ -24,7 +24,7 @@ func fly():
 	activated = true
 
 func _physics_process(_delta):
-	if activated:
+	if activated and not is_on_floor(): 
 		velocity = direction * speed
 	
 	for i in get_slide_collision_count() :
@@ -41,3 +41,4 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_kill_area_body_entered(body):
 	if body.has_method("applyDMG"):
 		body.applyDMG(10)
+		fly()

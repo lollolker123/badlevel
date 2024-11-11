@@ -42,6 +42,8 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 		if is_on_floor():
 			sprite.play("step")
+			if not $sfx/step.playing:
+				$sfx/steptimer.start()
 		else:
 			sprite.play("jump")
 	if not direction:
@@ -59,3 +61,7 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_deathtimer_timeout():
 	Global.change_location()
 	get_tree().reload_current_scene()
+
+
+func _on_steptimer_timeout():
+	$sfx/step.play()
