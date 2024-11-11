@@ -2,10 +2,7 @@ extends Node
 
 
 var background_textures : Array[CompressedTexture2D] = [
-	preload("res://sprites/sprFunnyFace1.png"),
-	preload("res://sprites/sprFunnyFace2.png"),
-	preload("res://sprites/sprFunnyFace3.png"),
-	preload("res://sprites/sprFunnyFace4.png")
+	preload("res://sprites/sprFunnyFace1.png")
 ]
 
 
