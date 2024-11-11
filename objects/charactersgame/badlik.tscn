@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dau6fovvrd0ti"]
+[gd_scene load_steps=20 format=3 uid="uid://dau6fovvrd0ti"]
 
 [ext_resource type="Script" path="res://scripts/badlik.gd" id="1_200my"]
 [ext_resource type="Texture2D" uid="uid://0vltelq7jyao" path="res://sprites/Sprite-0001.png" id="1_h642b"]
+[ext_resource type="AudioStream" uid="uid://c0f8l7lvkhxps" path="res://sfx/jump.wav" id="2_igsup"]
 [ext_resource type="Texture2D" uid="uid://cpaeuyfpyc63g" path="res://sprites/Sprite-0009.png" id="2_oj03o"]
 [ext_resource type="AudioStream" uid="uid://cns4p03thodbg" path="res://sfx/ходьба.wav" id="2_uwc73"]
 [ext_resource type="Texture2D" uid="uid://dv3ge5gnvkbrq" path="res://sprites/Sprite-0002.png" id="3_abyny"]
@@ -112,13 +113,17 @@ script = ExtResource("1_200my")
 
 [node name="sfx" type="Node2D" parent="."]
 
+[node name="jump" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("2_igsup")
+pitch_scale = 1.5
+
 [node name="step" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("2_uwc73")
-volume_db = -12.0
+volume_db = -18.0
 pitch_scale = 4.0
 
 [node name="steptimer" type="Timer" parent="sfx"]
-wait_time = 0.1
+wait_time = 0.25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
