@@ -78,12 +78,12 @@ animations = [{
 "speed": 1.0
 }, {
 "frames": [{
-"duration": 0.9,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7p8t2")
 }],
 "loop": false,
 "name": &"jump",
-"speed": 0.9
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,

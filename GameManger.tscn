@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4rno3cukrmbq"]
+
+[ext_resource type="Script" path="res://GameManager.gd" id="1_03jo6"]
+[ext_resource type="Texture2D" uid="uid://b76xbl8g1v2hw" path="res://sprites/sprFunnyFace1.png" id="2_j7gbv"]
+
+[node name="GameManger" type="Node"]
+script = ExtResource("1_03jo6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j7gbv")
+stretch_mode = 1
+
+[node name="TextureReverseTimer" type="Timer" parent="CanvasLayer/TextureRect"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="CanvasLayer/TextureRect/TextureReverseTimer" to="." method="_on_texture_reverse_timer_timeout"]

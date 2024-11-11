@@ -37,3 +37,7 @@ func _physics_process(_delta):
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	if out_of_bounds_despawn and activated:
 		queue_free()
+
+func _on_kill_area_body_entered(body):
+	if body.has_method("applyDMG"):
+		body.applyDMG(10)
