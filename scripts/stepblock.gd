@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export_enum("Up", "Down", "Right", "Left") var fly_direction : String
 
-@export var speed : int = 100
+@export var speed : int = 250
 var direction : Vector2
 
 @export var out_of_bounds_despawn : bool = false
@@ -27,9 +27,9 @@ func _physics_process(_delta):
 	if activated:
 		velocity = direction * speed
 	
-	for i in get_slide_collision_count():
+	for i in get_slide_collision_count() :
 		var collision = get_slide_collision(i)
-		if collision.get_collider().name == "badlik":
+		if collision.get_collider().name == "badlik" and not activated: 
 			fly()
 	
 	move_and_slide()

@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://do4onlvdhwjt1"]
+
+[ext_resource type="PackedScene" uid="uid://dau6fovvrd0ti" path="res://objects/charactersgame/badlik.tscn" id="1_rckan"]
+[ext_resource type="PackedScene" uid="uid://cce0hwxa8r4l2" path="res://scripts/door.tscn" id="2_0o6nj"]
+[ext_resource type="PackedScene" uid="uid://dgc3458n2rbxy" path="res://objects/bloock.tscn" id="3_8av5l"]
+[ext_resource type="PackedScene" uid="uid://c6181g7xlw70x" path="res://ship.tscn" id="4_rcppf"]
+[ext_resource type="PackedScene" uid="uid://cb3ihh7jxbhi" path="res://objects/2_ships.tscn" id="5_lb53l"]
+[ext_resource type="PackedScene" uid="uid://cboj22inv71w3" path="res://objects/3_ships.tscn" id="6_fpuru"]
+[ext_resource type="PackedScene" uid="uid://octo6gl5gwxj" path="res://objects/moveblock.tscn" id="7_ofc6l"]
+
+[sub_resource type="TileSet" id="TileSet_7ajyp"]
+physics_layer_0/collision_layer = 1
+
+[node name="camera" type="Node2D"]
+position = Vector2(-9, -3)
+
+[node name="badlik" parent="." instance=ExtResource("1_rckan")]
+position = Vector2(-208, -114)
+
+[node name="door" parent="." instance=ExtResource("2_0o6nj")]
+position = Vector2(352, -155)
+next_scene = "res://levels/camera4.tscn"
+
+[node name="bloock" parent="." instance=ExtResource("3_8av5l")]
+layer_0/tile_data = PackedInt32Array(131063, 0, 0, 65527, 0, 0, 196599, 0, 0, 131072, 0, 0, 131074, 0, 0, 327690, 0, 0, 327692, 0, 0, -393225, 0, 0, -327689, 0, 0, -262153, 0, 0, -196617, 0, 0, -131081, 0, 0, -65545, 0, 0, -9, 0, 0, 262135, 0, 0, 327671, 0, 0, 393207, 0, 0, -393224, 0, 0, -131080, 0, 0, 393208, 0, 0, -393223, 0, 0, -131079, 0, 0, 393209, 0, 0, -393222, 0, 0, -131078, 0, 0, 393210, 0, 0, -393221, 0, 0, 393211, 0, 0, -393220, 0, 0, 393212, 0, 0, -393219, 0, 0, 65533, 0, 0, 393213, 0, 0, -393218, 0, 0, 65534, 0, 0, 393214, 0, 0, -393217, 0, 0, 393215, 0, 0, -458752, 0, 0, 0, 0, 0, 65536, 0, 0, 327680, 0, 0, -458751, 0, 0, 327681, 0, 0, -458750, 0, 0, 196610, 0, 0, 262146, 0, 0, 327682, 0, 0, -458749, 0, 0, 327683, 0, 0, -458748, 0, 0, 327684, 0, 0, -458747, 0, 0, 327685, 0, 0, -458746, 0, 0, 327686, 0, 0, -458745, 0, 0, 327687, 0, 0, -458744, 0, 0, 327688, 0, 0, -458743, 0, 0, -393207, 0, 0, -327671, 0, 0, -262135, 0, 0, -65527, 0, 0, 327689, 0, 0, -458742, 0, 0, -262134, 0, 0, -65526, 0, 0, -458741, 0, 0, -262133, 0, 0, -65525, 0, 0, 327691, 0, 0, -458740, 0, 0, -458739, 0, 0, 327693, 0, 0, -458738, 0, 0, 131086, 0, 0, 327694, 0, 0, -458737, 0, 0, -131057, 0, 0, 327695, 0, 0, -458736, 0, 0, 327696, 0, 0, -458735, 0, 0, -131055, 0, 0, 131089, 0, 0, 327697, 0, 0, -458734, 0, 0, -131054, 0, 0, 131090, 0, 0, 327698, 0, 0, -458733, 0, 0, -393197, 0, 0, -327661, 0, 0, -262125, 0, 0, -196589, 0, 0, -131053, 0, 0, -65517, 0, 0, 19, 0, 0, 65555, 0, 0, 131091, 0, 0, 196627, 0, 0, 262163, 0, 0, 327699, 0, 0, 65530, 0, 0)
+
+[node name="ships" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_7ajyp")
+format = 2
+
+[node name="moveblocks" type="Node2D" parent="."]
+
+[node name="moveblock" parent="moveblocks" instance=ExtResource("7_ofc6l")]
+position = Vector2(-144, 16)
+
+[node name="CharacterBody2D" parent="moveblocks" instance=ExtResource("7_ofc6l")]
+position = Vector2(-112, 16)
+
+[node name="movwblock" parent="moveblocks" instance=ExtResource("7_ofc6l")]
+position = Vector2(-16, 16)
+
+[node name="movwblock2" parent="moveblocks" instance=ExtResource("7_ofc6l")]
+position = Vector2(48, 80)
+
+[node name="movwblock3" parent="moveblocks" instance=ExtResource("7_ofc6l")]
+position = Vector2(400, -16)
+
+[node name="movwblock4" parent="moveblocks" instance=ExtResource("7_ofc6l")]
+position = Vector2(400, -112)
+
+[node name="movwblock5" parent="moveblocks" instance=ExtResource("7_ofc6l")]
+position = Vector2(528, -48)
+
+[node name="movwblock6" parent="moveblocks" instance=ExtResource("7_ofc6l")]
+position = Vector2(496, 80)
+
+[node name="movwblock7" parent="moveblocks" instance=ExtResource("7_ofc6l")]
+position = Vector2(528, 80)
+
+[node name="ships123" type="Node2D" parent="."]
+
+[node name="ship" parent="ships123" instance=ExtResource("4_rcppf")]
+position = Vector2(472, -88)
+
+[node name="2ships" parent="ships123" instance=ExtResource("5_lb53l")]
+position = Vector2(-80, -8)
+
+[node name="3ships" parent="ships123" instance=ExtResource("6_fpuru")]
+position = Vector2(127, 152)
+
+[node name="3ships2" parent="ships123" instance=ExtResource("6_fpuru")]
+position = Vector2(174, 152)
+
+[node name="2ships2" parent="ships123" instance=ExtResource("5_lb53l")]
+position = Vector2(432, 152)
+
+[node name="2ships3" parent="ships123" instance=ExtResource("5_lb53l")]
+position = Vector2(80, 57)
