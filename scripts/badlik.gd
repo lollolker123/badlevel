@@ -10,9 +10,12 @@ var health = 10
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+<<<<<<< Updated upstream
 var step_sound_allow : bool = true
 var current_speed = 200      # Текущая скорость 
 
+=======
+>>>>>>> Stashed changes
 func applyDMG(dmg : int):
 	health -= dmg
 	if health <= 0:
@@ -35,8 +38,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		sprite.play("jump")
+<<<<<<< Updated upstream
 		$sfx/jump.play()
 
+=======
+	
+>>>>>>> Stashed changes
 	if Input.is_action_just_pressed("restart"):
 		Global.change_location()
 		get_tree().reload_current_scene()
@@ -49,15 +56,21 @@ func _physics_process(delta):
 		
 		if is_on_floor():
 			sprite.play("step")
-			if not $sfx/step.playing and step_sound_allow:
-				step_sound_allow = false
+			if not $sfx/step.playing:
 				$sfx/steptimer.start()
+<<<<<<< Updated upstream
 				$sfx/step.play()
 	else:
 		# Сбрасываем скорость до нуля, когда игрок останавливается
 		current_speed = 200
 		velocity.x = 0
 
+=======
+		else:
+			sprite.play("jump")
+	if not direction:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+>>>>>>> Stashed changes
 	if direction > 0:
 		sprite.flip_h = false
 	if direction < 0:
@@ -73,5 +86,6 @@ func _on_deathtimer_timeout():
 	Global.change_location()
 	get_tree().reload_current_scene()
 
+
 func _on_steptimer_timeout():
-	step_sound_allow = true
+	$sfx/step.play()
