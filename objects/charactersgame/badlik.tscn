@@ -115,12 +115,14 @@ script = ExtResource("1_200my")
 
 [node name="jump" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("2_igsup")
-pitch_scale = 1.5
+pitch_scale = 1.11
+max_polyphony = 2
 
 [node name="step" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("2_uwc73")
 volume_db = -18.0
-pitch_scale = 4.0
+pitch_scale = 3.24
+max_polyphony = 3
 
 [node name="steptimer" type="Timer" parent="sfx"]
 wait_time = 0.25
