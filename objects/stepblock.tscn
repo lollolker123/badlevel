@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/stepblock.gd" id="1_p3lux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slbnu"]
-size = Vector2(30, 30)
+size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e88mc"]
 size = Vector2(32, 3)
@@ -13,12 +13,12 @@ size = Vector2(32, 3)
 script = ExtResource("1_p3lux")
 fly_direction = "Down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_slbnu")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_ch85h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_slbnu")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(2.38419e-07, 2.38419e-07)

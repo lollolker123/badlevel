@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgmlcb00sh6s3"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_1ac0m"]
+[ext_resource type="FontFile" uid="uid://58u8yd4lvegm" path="res://fonts/notosans.ttf" id="1_legrs"]
+[ext_resource type="AudioStream" uid="uid://d1b5glasrwjb4" path="res://sfx/fuck-you.wav" id="3_aa7no"]
+[ext_resource type="Texture2D" uid="uid://bjphst32hqn13" path="res://sprites/play_icon.png" id="3_tgyld"]
+[ext_resource type="Texture2D" uid="uid://clj3twmfwc30k" path="res://sprites/map_icon.png" id="4_pliqq"]
+[ext_resource type="Texture2D" uid="uid://f0tog6a5w13q" path="res://sprites/quit_icon.png" id="4_swhri"]
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_1ac0m")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.329158, 0.329158, 0.329158, 1)
+
+[node name="PlayButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -125.0
+offset_right = 150.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_legrs")
+text = "Play"
+icon = ExtResource("3_tgyld")
+
+[node name="SettingsButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -25.0
+offset_right = 150.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_legrs")
+text = "Settings"
+
+[node name="MappingButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -545.0
+offset_top = -25.0
+offset_right = -245.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_legrs")
+text = "Map Editor"
+icon = ExtResource("4_pliqq")
+
+[node name="ModdingButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -25.0
+offset_right = 555.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_legrs")
+text = "Modding"
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_legrs")
+text = "Quit"
+icon = ExtResource("4_swhri")
+
+[node name="No_Access" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_aa7no")
+
+[connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]

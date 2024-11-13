@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4rno3cukrmbq"]
+[gd_scene load_steps=5 format=3 uid="uid://b4rno3cukrmbq"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_03jo6"]
 [ext_resource type="Texture2D" uid="uid://b76xbl8g1v2hw" path="res://sprites/sprFunnyFace1.png" id="2_j7gbv"]
+[ext_resource type="Shader" path="res://shaders/Glitch.gdshader" id="3_y4u7k"]
 
-[node name="GameManger" type="Node"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ig6ej"]
+shader = ExtResource("3_y4u7k")
+shader_parameter/range = 0.05
+shader_parameter/noiseQuality = 250.0
+shader_parameter/noiseIntensity = 0.0088
+shader_parameter/offsetIntensity = 0.03
+shader_parameter/colorOffsetIntensity = 1.3
+
+[node name="GameManager" type="Node"]
 script = ExtResource("1_03jo6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -22,5 +31,16 @@ stretch_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="ShaderCanvas" type="CanvasLayer" parent="."]
+
+[node name="glitch" type="ColorRect" parent="ShaderCanvas"]
+visible = false
+material = SubResource("ShaderMaterial_ig6ej")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="timeout" from="CanvasLayer/TextureRect/TextureReverseTimer" to="." method="_on_texture_reverse_timer_timeout"]

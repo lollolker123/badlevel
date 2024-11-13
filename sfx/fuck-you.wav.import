@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cns4p03thodbg"
-path="res://.godot/imported/ходьба.wav-d4a3f164362018e0e645618ed941cf8f.sample"
+uid="uid://d1b5glasrwjb4"
+path="res://.godot/imported/fuck-you.wav-bf4e226376587fed5a23ec371b10e4ce.sample"
 
 [deps]
 
-source_file="res://sfx/ходьба.wav"
-dest_files=["res://.godot/imported/ходьба.wav-d4a3f164362018e0e645618ed941cf8f.sample"]
+source_file="res://sfx/fuck-you.wav"
+dest_files=["res://.godot/imported/fuck-you.wav-bf4e226376587fed5a23ec371b10e4ce.sample"]
 
 [params]
 

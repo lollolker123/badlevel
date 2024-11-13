@@ -1,3 +1,4 @@
+class_name MovingBlock
 extends CharacterBody2D
 
 
@@ -27,7 +28,7 @@ func _physics_process(_delta):
 	if activated and not is_on_floor(): 
 		velocity = direction * speed
 	
-	for i in get_slide_collision_count() :
+	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().name == "badlik" and not activated: 
 			fly()

@@ -2,7 +2,7 @@ extends Node
 
 
 var background_textures : Array[CompressedTexture2D] = [
-	preload("res://sprites/Sprite-0004.png")
+	preload("res://sprites/sprFunnyFace1.png")
 ]
 
 
@@ -11,6 +11,12 @@ func _ready():
 
 func change_location():
 	$CanvasLayer/TextureRect.texture = background_textures.pick_random()
+
+func set_shader(shader_name: String, set_type: bool):
+	if set_type:
+		get_node("ShaderCanvas").get_node(shader_name).show()
+	if not set_type:
+		get_node("ShaderCanvas").get_node(shader_name).hide()
 
 func _physics_process(delta):
 	pass
