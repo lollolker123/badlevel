@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="badlevel"
-run/main_scene="res://levels/camera5.tscn"
+run/main_scene="res://levels/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://sprites/cyan_icon.png"
+config/icon="res://sprites/Sprite-0001.png"
+config/windows_native_icon="res://gameicon.ico"
 
 [autoload]
 
