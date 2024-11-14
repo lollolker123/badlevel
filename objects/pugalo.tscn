@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt2bggqxho0rc"]
+
+[ext_resource type="Script" path="res://objects/pugalo.gd" id="1_8icim"]
+[ext_resource type="Texture2D" uid="uid://c7m10wf1efxv6" path="res://sprites/Sprite-0017.png" id="1_phfpa"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dbkwu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmalc"]
+size = Vector2(19, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f74q4"]
+atlas = ExtResource("1_phfpa")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvp0l"]
+atlas = ExtResource("1_phfpa")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj1sn"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_f74q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvp0l")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 1.0
+}]
+
+[node name="pugalo" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_dbkwu")
+script = ExtResource("1_8icim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_mmalc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_tj1sn")
+animation = &"blink"

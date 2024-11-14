@@ -4,10 +4,25 @@
 [ext_resource type="Script" path="res://scripts/troll_spike.gd" id="1_y71do"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54hsy"]
-size = Vector2(24, 24)
+size = Vector2(32, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25kiv"]
-size = Vector2(16, 16)
+size = Vector2(12, 12)
+
+[sub_resource type="Animation" id="Animation_1c1e3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 8)]
+}
 
 [sub_resource type="Animation" id="Animation_cgx0l"]
 resource_name = "attack_anim"
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 8), Vector2(0, -8)]
 }
 
-[sub_resource type="Animation" id="Animation_1c1e3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 8)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8wd5h"]
 _data = {
 "RESET": SubResource("Animation_1c1e3"),
@@ -54,10 +54,11 @@ script = ExtResource("1_y71do")
 position = Vector2(0, -12)
 
 [node name="Collider" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_54hsy")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_25kiv")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -71,7 +72,6 @@ libraries = {
 }
 
 [node name="HideTimer" type="Timer" parent="."]
-wait_time = 0.75
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
