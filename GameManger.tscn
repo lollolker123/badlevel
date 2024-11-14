@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4rno3cukrmbq"]
+[gd_scene load_steps=7 format=3 uid="uid://b4rno3cukrmbq"]
 
 [ext_resource type="Script" path="res://GameManager.gd" id="1_03jo6"]
 [ext_resource type="Texture2D" uid="uid://b76xbl8g1v2hw" path="res://sprites/sprFunnyFace1.png" id="2_j7gbv"]
 [ext_resource type="Shader" path="res://shaders/Glitch.gdshader" id="3_y4u7k"]
+[ext_resource type="Shader" path="res://shaders/Hatch.gdshader" id="4_kgs6x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ig6ej"]
 shader = ExtResource("3_y4u7k")
@@ -11,6 +12,11 @@ shader_parameter/noiseQuality = 250.0
 shader_parameter/noiseIntensity = 0.0088
 shader_parameter/offsetIntensity = 0.03
 shader_parameter/colorOffsetIntensity = 1.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jv1f5"]
+shader = ExtResource("4_kgs6x")
+shader_parameter/colors = 1.0
+shader_parameter/dither = null
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_03jo6")
@@ -37,6 +43,15 @@ autostart = true
 [node name="glitch" type="ColorRect" parent="ShaderCanvas"]
 visible = false
 material = SubResource("ShaderMaterial_ig6ej")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hatch" type="ColorRect" parent="ShaderCanvas"]
+visible = false
+material = SubResource("ShaderMaterial_jv1f5")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgmlcb00sh6s3"]
+[gd_scene load_steps=9 format=3 uid="uid://cgmlcb00sh6s3"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_1ac0m"]
 [ext_resource type="FontFile" uid="uid://58u8yd4lvegm" path="res://fonts/notosans.ttf" id="1_legrs"]
 [ext_resource type="AudioStream" uid="uid://d1b5glasrwjb4" path="res://sfx/fuck-you.wav" id="3_aa7no"]
 [ext_resource type="Texture2D" uid="uid://bjphst32hqn13" path="res://sprites/play_icon.png" id="3_tgyld"]
+[ext_resource type="Texture2D" uid="uid://cqfi6l80ejnv5" path="res://sprites/settings-icon.png" id="4_1hdxh"]
 [ext_resource type="Texture2D" uid="uid://clj3twmfwc30k" path="res://sprites/map_icon.png" id="4_pliqq"]
 [ext_resource type="Texture2D" uid="uid://f0tog6a5w13q" path="res://sprites/quit_icon.png" id="4_swhri"]
+[ext_resource type="Texture2D" uid="uid://c75n7kbjgw8kr" path="res://sprites/modify-icon.png" id="5_d5k32"]
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_1ac0m")
@@ -59,6 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_legrs")
 text = "Settings"
+icon = ExtResource("4_1hdxh")
 
 [node name="MappingButton" type="Button" parent="Control"]
 layout_mode = 1
@@ -92,6 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_legrs")
 text = "Modding"
+icon = ExtResource("5_d5k32")
 
 [node name="QuitButton" type="Button" parent="Control"]
 layout_mode = 1

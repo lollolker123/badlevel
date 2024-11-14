@@ -1,0 +1,129 @@
+[gd_scene load_steps=15 format=3 uid="uid://bxcjdjf0m6hl"]
+
+[ext_resource type="Script" path="res://scripts/second_player.gd" id="1_dhagl"]
+[ext_resource type="Texture2D" uid="uid://c1srm2467s3qr" path="res://sprites/Sprite-0018.png" id="1_oypux"]
+[ext_resource type="AudioStream" uid="uid://bxl38ixfbcwti" path="res://sfx/screamsplosion.wav" id="2_us768"]
+[ext_resource type="AudioStream" uid="uid://bcn2h428pclkf" path="res://sfx/dark-scream.wav" id="4_hdsme"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84t3s"]
+size = Vector2(140, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxbto"]
+atlas = ExtResource("1_oypux")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgatp"]
+atlas = ExtResource("1_oypux")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tewbw"]
+atlas = ExtResource("1_oypux")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udje8"]
+atlas = ExtResource("1_oypux")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svjra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxbto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgatp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tewbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udje8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p2t7v"]
+
+[sub_resource type="Animation" id="Animation_v7axe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_efru5"]
+resource_name = "hide_anim"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ep1d3"]
+_data = {
+"RESET": SubResource("Animation_v7axe"),
+"hide_anim": SubResource("Animation_efru5")
+}
+
+[node name="SecondPlayer" type="StaticBody2D"]
+script = ExtResource("1_dhagl")
+
+[node name="Crush_Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crush_Area"]
+position = Vector2(-5, -19)
+shape = SubResource("RectangleShape2D_84t3s")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_svjra")
+autoplay = "default"
+frame_progress = 0.95973
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p2t7v")
+
+[node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(0.95, -1.5, 3, 3)
+
+[node name="Liveeffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_us768")
+volume_db = -60.0
+pitch_scale = 0.1
+autoplay = true
+
+[node name="Hideeffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_us768")
+volume_db = -60.0
+
+[node name="Crusheffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hdsme")
+pitch_scale = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ep1d3")
+}
+
+[connection signal="body_entered" from="Crush_Area" to="." method="_on_crush_area_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier" to="." method="_on_visible_on_screen_notifier_screen_entered"]
+[connection signal="finished" from="Liveeffect" to="." method="_on_liveeffect_finished"]
+[connection signal="finished" from="Hideeffect" to="." method="_on_hideeffect_finished"]
+[connection signal="finished" from="Crusheffect" to="." method="_on_crusheffect_finished"]

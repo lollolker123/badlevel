@@ -19,6 +19,7 @@ var current_speed = 200
 func applyDMG(dmg: int):
 	health -= dmg
 	if health <= 0 and not death:
+		$sfx/death.play()
 		death = true
 		health = 0
 		sprite.play("death")
