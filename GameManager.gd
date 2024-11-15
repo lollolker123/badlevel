@@ -18,8 +18,9 @@ func set_shader(shader_name: String, set_type: bool):
 	if not set_type:
 		get_node("ShaderCanvas").get_node(shader_name).hide()
 
-func _physics_process(delta):
-	pass
+func _physics_process(_delta):
+	if Input.is_action_just_pressed("escape"):
+		get_tree().change_scene_to_file("res://levels/menu.tscn")
 
 func _on_texture_reverse_timer_timeout():
 	$CanvasLayer/TextureRect/TextureReverseTimer.start()
