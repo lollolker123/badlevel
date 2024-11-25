@@ -14,5 +14,5 @@ func _on_load_mods_button_pressed():
 			ProjectSettings.load_resource_pack(modname)
 			var imported_scene = load("res://mod.tscn")
 			get_tree().root.add_child(imported_scene)
-		modname.get_next()
+			modname = mod_dir.get_next()
 	mod_dir.list_dir_end()

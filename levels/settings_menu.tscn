@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://so1vv7lykqv6"]
+
+[ext_resource type="Theme" uid="uid://dhu7ntgvouqb1" path="res://presets/settings_theme.tres" id="1_bk87x"]
+
+[node name="settings_menu" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="TestCheckbox" type="CheckBox" parent="Control/GridContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_bk87x")
+text = "Fun setting"
