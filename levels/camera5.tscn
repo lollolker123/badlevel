@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnfd4lcgfk3tr"]
+[gd_scene load_steps=11 format=3 uid="uid://bnfd4lcgfk3tr"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_he1ld"]
 [ext_resource type="PackedScene" uid="uid://dau6fovvrd0ti" path="res://objects/charactersgame/badlik.tscn" id="1_jwsdv"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cboj22inv71w3" path="res://objects/3_ships.tscn" id="6_w4vg0"]
 [ext_resource type="TileSet" uid="uid://dr7yls61xbnst" path="res://presets/backround.tres" id="8_6en5x"]
 [ext_resource type="PackedScene" uid="uid://bxcjdjf0m6hl" path="res://objects/charactersgame/second_player.tscn" id="9_egaqd"]
-[ext_resource type="PackedScene" uid="uid://dgbky7fof2wrs" path="res://objects/phantom_block.tscn" id="10_2o3xj"]
 
 [sub_resource type="TileSet" id="TileSet_7ajyp"]
 physics_layer_0/collision_layer = 1
@@ -74,7 +73,3 @@ layer_0/tile_data = PackedInt32Array(-393225, 0, 0, -327689, 0, 0, -262153, 0, 0
 [node name="SecondPlayer" parent="." instance=ExtResource("9_egaqd")]
 position = Vector2(-230, 144)
 scale = Vector2(-1, 1)
-
-[node name="PhantomBlock" parent="." instance=ExtResource("10_2o3xj")]
-position = Vector2(336, 97)
-one_shot = false

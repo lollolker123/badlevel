@@ -20,6 +20,7 @@ position = Vector2(-173, -115)
 
 [node name="door" parent="." instance=ExtResource("2_2q2in")]
 position = Vector2(352, -155)
+scale = Vector2(1, 0.965769)
 next_scene = "res://levels/camera8.tscn"
 
 [node name="bloock" parent="." instance=ExtResource("3_2bp3w")]
