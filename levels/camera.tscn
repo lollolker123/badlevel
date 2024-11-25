@@ -8,7 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://dgc3458n2rbxy" path="res://objects/bloock.tscn" id="5_urhb3"]
 [ext_resource type="PackedScene" uid="uid://cb3ihh7jxbhi" path="res://objects/2_ships.tscn" id="6_caear"]
 [ext_resource type="PackedScene" uid="uid://cboj22inv71w3" path="res://objects/3_ships.tscn" id="7_uu880"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://dyvn8wnvrdjgg" path="res://objects/led.tscn" id="9_xpmqy"]
+=======
+[ext_resource type="PackedScene" uid="uid://dgbky7fof2wrs" path="res://objects/phantom_block.tscn" id="9_kk1we"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSet" id="TileSet_7ajyp"]
 physics_layer_0/collision_layer = 1
@@ -53,5 +57,10 @@ position = Vector2(126, 152)
 [node name="3ships2" parent="." instance=ExtResource("7_uu880")]
 position = Vector2(173, 152)
 
+<<<<<<< Updated upstream
 [node name="led" parent="." instance=ExtResource("9_xpmqy")]
 position = Vector2(1, -9)
+=======
+[node name="PhantomBlock" parent="." instance=ExtResource("9_kk1we")]
+position = Vector2(-144, -80)
+>>>>>>> Stashed changes
