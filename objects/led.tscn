@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyvn8wnvrdjgg"]
+
+[ext_resource type="Script" path="res://objects/led.gd" id="1_dg0f4"]
+[ext_resource type="Texture2D" uid="uid://crlk34urvnb7x" path="res://sprites/Sprite-00022.png" id="1_skvxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dub2m"]
+size = Vector2(64, 11)
+
+[node name="led" type="Area2D"]
+script = ExtResource("1_dg0f4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_skvxx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_dub2m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

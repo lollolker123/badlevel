@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://daw5vxey5kwv6"]
+
+[ext_resource type="Texture2D" uid="uid://cp07sc720clgb" path="res://levels/Sprite-00012.png" id="1_fl05h"]
+[ext_resource type="Script" path="res://objects/tpblock.gd" id="1_k74ix"]
+
+[node name="tpblock" type="Node2D"]
+script = ExtResource("1_k74ix")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fl05h")
